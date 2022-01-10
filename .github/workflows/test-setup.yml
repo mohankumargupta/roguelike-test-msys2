@@ -10,9 +10,11 @@ jobs:
           msystem: MSYS  
           location: D:\
           release: true
-      - shell: msys2 {0}
-        run: | 
-           pacman -S --needed git base-devel mingw-w64-x86_64-toolchain  mingw-w64-x86_64-clang mingw-w64-x86_64-cmake
+          install: >-
+            base-devel
+            git
+            mingw-w64-x86_64-toolchain
+            mingw-w64-x86_64-cmake
       - shell: msys2{0}  
         run: |
           set MSYSTEM=MINGW64
