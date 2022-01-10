@@ -22,4 +22,4 @@ jobs:
             mingw-w64-x86_64-cmake
       -  name: Check if g++ installed
          run: |
-          g++ --version
+           g++ --version           
