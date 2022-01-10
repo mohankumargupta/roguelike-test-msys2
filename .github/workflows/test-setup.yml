@@ -8,9 +8,11 @@ jobs:
       run:
         shell: msys2 {0}    
     steps:
-      - uses: msys2/setup-msys2@v2
+      - name: setup msys2
+        uses: msys2/setup-msys2@v2
         with:
-          msystem: MSYS  
+          msystem: MINGW64
+          update: true
           location: D:\
           release: false
           install: >-
@@ -18,8 +20,6 @@ jobs:
             git
             mingw-w64-x86_64-toolchain
             mingw-w64-x86_64-cmake
-      -  run: |
-          echo $MSYSTEM
-          source shell mingw64
-          echo $MSYSTEM
-          g++ -version
+      -  name: Check if g++ installed
+         run: |
+          g++ --version
