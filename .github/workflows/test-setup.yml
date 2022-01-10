@@ -15,7 +15,7 @@ jobs:
             git
             mingw-w64-x86_64-toolchain
             mingw-w64-x86_64-cmake
-      - shell: msys2{0}  
+      - shell: msys2 {0}  
         run: |
           set MSYSTEM=MINGW64
           msys2 -c 'g++ -version' 
