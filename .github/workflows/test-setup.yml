@@ -4,6 +4,9 @@ on:
 jobs: 
   msys2:
     runs-on: windows-2022
+    defaults:
+      run:
+        shell: msys2 {0}    
     steps:
       - uses: msys2/setup-msys2@v2
         with:
@@ -15,7 +18,8 @@ jobs:
             git
             mingw-w64-x86_64-toolchain
             mingw-w64-x86_64-cmake
-      - shell: msys2 {0}  
-        run: |
-          set MSYSTEM=MINGW64
+      -  run: |
+          echo $MSYSTEM
+          source shell mingw64
+          echo $MSYSTEM
           g++ -version
